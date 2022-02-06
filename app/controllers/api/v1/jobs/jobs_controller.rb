@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :authentication
   before_action :set_job, only: %i[ show update destroy ]
 
   # GET /jobs
