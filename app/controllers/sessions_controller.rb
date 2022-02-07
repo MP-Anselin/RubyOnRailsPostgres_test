@@ -1,25 +1,20 @@
 class SessionsController < ApplicationController
   def signup
-    if current_user.empty?
+    if current_user
+      render json: { status: "error", code: 409, message: "user already signed up" }
+    else
       @User = User.new(session_params)
-
-      puts "USER =>Q ", @User
       @User.password = session_params[:password]
 
       if @User.save
-        token = encode_user_data({ user_id: @User.id })
-        return render json: { token: token }
+        return render json: { user_id: @User.id, email: @User.email }
       end
       render json: { status: "error", code: 401, message: "invalid credentials" }
-    else
-      render json: { status: "error", code: 409, message: "user already signed up" }
     end
   end
 
   def login
     @User = current_user
-    puts "USER =>2 ", @User.password_hash
-
     if @User && @User.password == session_params[:password]
       token = encode_user_data({ user_data: @User.id })
       render json: { token: token }
@@ -31,7 +26,7 @@ class SessionsController < ApplicationController
   private
 
   def current_user
-    User.filter_by_email(session_params[:email]) if session_params[:email].present?
+    User.find_by(email: session_params[:email]) if session_params[:email].present?
   end
 
   # Only allow a list of trusted parameters through.

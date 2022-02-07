@@ -22,8 +22,6 @@ class JobsController < ApplicationController
 
   # POST /jobs
   def create
-    puts " job_params "
-    puts job_params
     @job = Job.new(job_params)
 
     if @job.save
