@@ -14,14 +14,16 @@ class JobsController < ApplicationController
     render json: @job
   end
 
-  # GET /jobs/title/:email
+  # GET /jobs/title/:title
   def get_by_title
-    puts "HEllo"
+    params.require("title")
     render json: Job.filter_by_title(params[:title])  if params[:title].present?
   end
 
   # POST /jobs
   def create
+    puts " job_params "
+    puts job_params
     @job = Job.new(job_params)
 
     if @job.save
