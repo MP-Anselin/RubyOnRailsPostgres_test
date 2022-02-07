@@ -32,7 +32,7 @@ development:
   username: postgres
 
   # The password associated with the postgres role (username).
-  password: 'mp1~0psql'
+  password: <%= ENV["UMC_API_DATABASE_PASSWORD"] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -59,7 +59,7 @@ test:
   <<: *default
   database: umc_api_test
   username: postgres
-  password: 'mp1~0psql'
+  password: <%= ENV["UMC_API_DATABASE_PASSWORD"] %>
   host: localhost
   port: 5432
 
@@ -87,7 +87,7 @@ production:
   <<: *default
   database: umc_db
   username: postgres
-  password: 'mp1~0psql'
+  password: <%= ENV["UMC_API_DATABASE_PASSWORD"] %>
   host: localhost
   port: 5432
 
