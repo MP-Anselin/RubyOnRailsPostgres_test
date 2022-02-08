@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  include ActionController::Cookies
+
   def initialize
     @sessions_service = SessionsService.new
   end
@@ -16,10 +18,22 @@ class SessionsController < ApplicationController
 
   def login
     if @sessions_service.login(session_params[:email], session_params[:password])
-      render json: { token: @sessions_service.token }
+      cookies[:Authorization] = {
+        value: @sessions_service.token,
+        expires: 1.hour.from_now
+      }
+      user = @sessions_service.user_session
+      render json: { id: user[:id], email: user[:email] }
     else
       render json: { status: "error", code: 401, message: "invalid credentials" }
     end
+  end
+
+  def logout
+    cookies[:Authorization] = {
+      value: 0,
+      expires: 0.1.second.from_now
+    }
   end
 
   private

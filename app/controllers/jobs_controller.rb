@@ -16,12 +16,6 @@ class JobsController < ApplicationController
     render json: @job_service.job
   end
 
-  # GET /jobs/title/:title
-  def get_by_title
-    params.require("title")
-    render json: @job_service.get_by_title(params[:title])  if params[:title].present?
-  end
-
   # POST /jobs
   def create
     if @job_service.create(job_params, params[:languages], params[:dates], current_user.id)
@@ -43,6 +37,18 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   def destroy
     @job_service.destroy
+  end
+
+  # GET /jobs/title/:title
+  def get_by_title
+    params.require("title")
+    render json: @job_service.get_by_title(params[:title])  if params[:title].present?
+  end
+
+  # GET /jobs/language/:language
+  def get_by_language
+    params.require("language")
+    render json: @job_service.get_by_language(params[:language])  if params[:language].present?
   end
 
   private

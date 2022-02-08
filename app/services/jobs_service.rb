@@ -40,4 +40,14 @@ class JobsService < ApplicationService
   def get_by_title(title)
     Job.filter_by_title(title)
   end
+
+  def get_by_language(language)
+    result = []
+    jobs.each do |job|
+      if job.spoken_languages.include? language
+        result << job
+      end
+    end
+    result
+  end
 end
