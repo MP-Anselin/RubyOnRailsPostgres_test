@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
     @sessions_service = SessionsService.new
     user = @sessions_service.authentication_session(cookies["Authorization"])
     unless user
-      return render json: { status: "error", code: 401, message: "Unauthorized" }
+      return render json: { status: "error", code: 401, message: "Unauthorized" }, status: 401
     end
     session[:user_id] = user.id
     Current.user = user

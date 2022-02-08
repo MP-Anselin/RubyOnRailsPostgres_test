@@ -8,7 +8,7 @@ class AppliesController < ApplicationController
   def create
     case @applies_service.create(applied_params[:job_id], applied_params[:user_id])
     when 409
-      render json: { status: "error", code: 409, message: "user already applied for this job" }
+      render json: { status: "error", code: 409, message: "user already applied for this job" }, status: 409
     when 200
       render json: @applies_service.apply, status: :created
     else

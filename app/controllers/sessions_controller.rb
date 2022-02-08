@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
     when 200
       render json: { user_id: @sessions_service.user_session.id, email: @sessions_service.user_session.email }
     when 409
-      render json: { status: "error", code: 409, message: "user already signed up" }
+      render json: { status: "error", code: 409, message: "user already signed up" }, status: 409
     else
-      render json: { status: "error", code: 401, message: "invalid credentials" }
+      render json: { status: "error", code: 401, message: "invalid credentials" }, status: 401
     end
   end
 
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
       user = @sessions_service.user_session
       render json: { id: user[:id], email: user[:email] }
     else
-      render json: { status: "error", code: 401, message: "invalid credentials" }
+      render json: { status: "error", code: 401, message: "invalid credentials" }, status: 401
     end
   end
 
@@ -44,7 +44,7 @@ class SessionsController < ApplicationController
     if params_info.empty? or
       !params_info.include?(:password) or
       !params_info.include?(:email)
-      return render json: { status: "error", code: 401, message: "invalid credentials" }
+      return render json: { status: "error", code: 401, message: "invalid credentials" }, status: 401
     end
     params_info
   end
