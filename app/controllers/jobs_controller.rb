@@ -8,7 +8,7 @@ class JobsController < ApplicationController
 
   # GET /jobs
   def index
-    render json: @job_service.jobs
+    render json: @job_service.jobs_with_full_salary
   end
 
   # GET /jobs/:id

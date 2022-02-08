@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   include ActionController::Cookies
-
+  
   def initialize
     @sessions_service = SessionsService.new
   end

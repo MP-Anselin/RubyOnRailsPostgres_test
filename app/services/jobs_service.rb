@@ -20,6 +20,18 @@ class JobsService < ApplicationService
     @jobs = Job.all
   end
 
+  def jobs_with_full_salary
+    @jobs = jobs
+    @jobs.each { |job|
+      count = 0
+      job.shift_dates.each { |dates|
+        count += (dates[1].to_i - dates[0].to_i)
+      }
+      job.salary *= count
+    }
+    @jobs
+  end
+
   # POST /jobs
   def create(job_params, spoken_languages, shift_dates, user_id)
     @job = Job.new(job_params)
