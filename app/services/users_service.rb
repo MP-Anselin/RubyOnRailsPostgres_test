@@ -14,6 +14,6 @@ class UsersService < ApplicationService
 
   def update_jobs(user_id, job)
     user = get_by_id(user_id)
-    user.update(jobs: [job])
+    user.jobs << job
   end
 end

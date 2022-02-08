@@ -3,67 +3,57 @@ class JobsController < ApplicationController
   before_action :set_job, only: %i[ show update applied destroy ]
 
   def initialize
-    @Users_service = UsersService.new
+    @job_service = JobsService.new
   end
 
   # GET /jobs
   def index
-    @jobs = Job.all
-
-    render json: @jobs
+    render json: @job_service.jobs
   end
 
   # GET /jobs/:id
   def show
-    render json: @job
+    render json: @job_service.job
   end
 
   # GET /jobs/title/:title
   def get_by_title
     params.require("title")
-    render json: Job.filter_by_title(params[:title])  if params[:title].present?
+    render json: @job_service.get_by_title(params[:title])  if params[:title].present?
   end
 
   # POST /jobs
   def create
-
-    @job = Job.new(job_params)
-    @job.user_id = current_user.id
-    @Users_service.update_jobs(@job.user_id, @job)
-    if @job.save
-      render json: @job, status: :created, location: @job
+    if @job_service.create(job_params, params[:languages], params[:dates], current_user.id)
+      render json: @job_service.job, status: :created, location: @job_service.job
     else
-      render json: @job.errors, status: :unprocessable_entity
+      render json: @job_service.job.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /jobs/1
   def update
-    if @job.update(job_params)
-      render json: @job
+    if @job_service.update(job_params)
+      render json: @job_service.job
     else
-      render json: @job.errors, status: :unprocessable_entity
+      render json: @job_service.job.errors, status: :unprocessable_entity
     end
-  end
-
-  # PATCH/PUT /jobs/applied/1
-  def applied
-    @job.update(users: [current_user])
   end
 
   # DELETE /jobs/1
   def destroy
-    @job.destroy
+    @job_service.destroy
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_job
-      @job = Job.find(params[:id])
+      @job_service.job = params[:id]
     end
 
     # Only allow a list of trusted parameters through.
     def job_params
-      params.require(:job).permit(:title, :salary, :spoken_languages, :shift_dates)
+      params.require("job").permit(:title, :salary, :languages, :dates)
     end
 end

@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::API
-  before_action :authentication
-
   SECRET = "yoursecretword"
   ALGORITHM = "HS256"
 
