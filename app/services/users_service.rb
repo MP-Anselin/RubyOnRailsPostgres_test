@@ -1,4 +1,7 @@
 class UsersService < ApplicationService
+  def model
+    User
+  end
 
   def get_by_email(email)
     User.find_by(email: email)

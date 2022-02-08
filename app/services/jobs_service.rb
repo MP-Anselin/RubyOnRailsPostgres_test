@@ -4,6 +4,10 @@ class JobsService < ApplicationService
     @users_service = UsersService.new
   end
 
+  def model
+    Job
+  end
+
   def job=(id)
     @job = Job.find(id)
   end
