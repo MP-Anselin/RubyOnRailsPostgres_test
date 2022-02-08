@@ -35,12 +35,12 @@ class SessionsService < ApplicationService
     @users_service.model.find(user_id)
   end
 
-  def signup(session_params)
-    if @users_service.model.find_by(email: session_params[:email])
+  def signup(email, password)
+    if @users_service.model.find_by(email: email)
       return 409
     end
-    @user = @users_service.model.new(session_params)
-    @user.password = session_params[:password]
+    @user = @users_service.model.new(email: email, password: password)
+    @user.password = password
     @user.save
     200
   end

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def signup
-    case @sessions_service.signup(session_params)
+    case @sessions_service.signup(session_params[:email], session_params[:password])
     when 200
       render json: { user_id: @sessions_service.user_session.id, email: @sessions_service.user_session.email }
     when 409
