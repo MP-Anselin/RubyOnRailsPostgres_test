@@ -1,6 +1,10 @@
 class JobsController < ApplicationController
   before_action :authentication
-  before_action :set_job, only: %i[ show update destroy ]
+  before_action :set_job, only: %i[ show update applied destroy ]
+
+  def initialize
+    @Users_service = UsersService.new
+  end
 
   # GET /jobs
   def index
@@ -22,8 +26,10 @@ class JobsController < ApplicationController
 
   # POST /jobs
   def create
-    @job = Job.new(job_params)
 
+    @job = Job.new(job_params)
+    @job.user_id = current_user.id
+    @Users_service.update_jobs(@job.user_id, @job)
     if @job.save
       render json: @job, status: :created, location: @job
     else
@@ -38,6 +44,11 @@ class JobsController < ApplicationController
     else
       render json: @job.errors, status: :unprocessable_entity
     end
+  end
+
+  # PATCH/PUT /jobs/applied/1
+  def applied
+    @job.update(users: [current_user])
   end
 
   # DELETE /jobs/1

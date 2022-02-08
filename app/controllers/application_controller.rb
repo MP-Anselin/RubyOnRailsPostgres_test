@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::API
+  before_action :authentication
+
   SECRET = "yoursecretword"
   ALGORITHM = "HS256"
+
+  def current_user
+    @Current_user = Current.user
+  end
 
   def authentication
     authentication = request.headers["Authorization"]
@@ -13,6 +19,8 @@ class ApplicationController < ActionController::API
 
     user_id = decode_data[0]["user_data"]
     user = User.find(user_id)
+    session[:user_id] = user.id
+    Current.user = user
 
     if user
       true

@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  def initialize
+    @UserService = UsersService.new
+  end
+
   def signup
     if current_user
       render json: { status: "error", code: 409, message: "user already signed up" }
@@ -16,7 +20,8 @@ class SessionsController < ApplicationController
   def login
     @User = current_user
     if @User && @User.password == session_params[:password]
-      token = encode_user_data({ user_data: @User.id })
+        session[:user_id] = @User.id
+        token = encode_user_data({ user_data: @User.id })
       render json: { token: token }
     else
       render json: { status: "error", code: 401, message: "invalid credentials" }
@@ -26,17 +31,17 @@ class SessionsController < ApplicationController
   private
 
   def current_user
-    User.find_by(email: session_params[:email]) if session_params[:email].present?
+    @UserService.get_by_email(session_params[:email])
   end
+end
 
-  # Only allow a list of trusted parameters through.
-  def session_params
-    params_info = params.require(:session).permit(:email, :password)
-    if params_info.empty? or
-      !params_info.include?(:password) or
-      !params_info.include?(:email)
-      return render json: { status: "error", code: 401, message: "invalid credentials" }
-    end
-    params_info
+# Only allow a list of trusted parameters through.
+def session_params
+  params_info = params.require(:session).permit(:email, :password)
+  if params_info.empty? or
+    !params_info.include?(:password) or
+    !params_info.include?(:email)
+    return render json: { status: "error", code: 401, message: "invalid credentials" }
   end
+  params_info
 end

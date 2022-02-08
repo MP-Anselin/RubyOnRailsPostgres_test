@@ -1,6 +1,8 @@
 require 'bcrypt'
 
-class User < ApplicationRecord
+class User < ActiveRecord::Base
+  has_many :jobs, dependent: :destroy
+  has_many :applieds, dependent: :destroy
   include BCrypt
 
   validates :email, presence: true, uniqueness: true
