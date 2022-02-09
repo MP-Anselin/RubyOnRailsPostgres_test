@@ -42,3 +42,34 @@ the following features and functions:
 ❏ Pagination
 ```
 
+# Execute project
+
+run project 
+
+```
+bundle install
+rails server
+```
+
+run test
+
+```
+bundle install
+rails seeds
+```
+
+# Documentation
+About the code <br>
+
+Find the file index.html
+```
+cd RubyOnRailsPostgres_test/doc/
+```
+
+About the routes <br>
+Find the file rubyOnRailsPostgres.postman_collection.json
+```
+cd RubyOnRailsPostgres_test/doc/postman/
+```
+
+Be careful the token is passing in the cookies with Authorization name
