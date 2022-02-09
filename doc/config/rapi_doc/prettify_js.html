@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>prettify.js - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../../Gemfile.html">Gemfile</a>
+    <li><a href="../../Gemfile_lock.html">Gemfile.lock</a>
+    <li><a href="../../README_md.html">README</a>
+    <li><a href="../../Rakefile.html">Rakefile</a>
+    <li><a href="../../config_ru.html">config.ru</a>
+    <li><a href="../../config/credentials_yml_enc.html">credentials.yml.enc</a>
+    <li><a href="../../config/master_key.html">master.key</a>
+    <li><a href="../../config/rapi_doc/_resource_header_html_haml.html">_resource_header.html.haml</a>
+    <li><a href="../../config/rapi_doc/_resource_method_html_haml.html">_resource_method.html.haml</a>
+    <li><a href="../../config/rapi_doc/beautify_js.html">beautify.js</a>
+    <li><a href="../../config/rapi_doc/index_html_haml.html">index.html.haml</a>
+    <li><a href="../../config/rapi_doc/prettify_css.html">prettify.css</a>
+    <li><a href="../../config/rapi_doc/prettify_js.html">prettify.js</a>
+    <li><a href="../../config/rapi_doc/scripts_js.html">scripts.js</a>
+    <li><a href="../../config/rapi_doc/styles_css.html">styles.css</a>
+    <li><a href="../../log/development_log.html">development.log</a>
+    <li><a href="../../public/robots_txt.html">robots</a>
+    <li><a href="../../tmp/development_secret_txt.html">development_secret</a>
+    <li><a href="../../tmp/restart_txt.html">restart</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page config/rapi_doc/prettify.js">
+
+<p>// Copyright © 2006 Google Inc. // // Licensed under the Apache License, Version 2.0 (the “License”); // you may not use this file except in compliance with the License. // You may obtain a copy of the License at // //      <a href="http://www.apache.org/licenses/LICENSE-2.0">www.apache.org/licenses/LICENSE-2.0</a> // // Unless required by applicable law or agreed to in writing, software // distributed under the License is distributed on an “AS IS” BASIS, // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. // See the License for the specific language governing permissions and // limitations under the License.</p>
+
+<p>var q=null;window.PR_SHOULD_USE_CONTINUATION=!0; (function(){function L(a){function m(a){var f=a.charCodeAt(0);if(f!==92)return f;var <a href="b">b=a.charAt(1);return(f=r</a>)?f:“0”&lt;=b&amp;&amp;b&lt;=“7”?parseInt(a.substring(1),8):b===“u”||b===“x”?parseInt(a.substring(2),16):a.charCodeAt(1)}function e(a){<a href=""||a==="">if(a<32)return(a<16?"\\x0":"\\x")+a.toString(16);a=String.fromCharCode(a);if(a==="\\"||a==="-"||a==="</a>“)a=”\“+a;return a}function h(a){for(var <a href="\dA-Fa-f">f=a.substring(1,a.length-1).match(/\u</a>{4}|\<a href="\dA-Fa-f">x</a>{2}|\[<a href="0-7">0-3]</a>{0,2}|\[0-7]{1,2}|\[<a href=”^\“>Ss]|</a>/g),a= [],<a href="0">b=[],o=f</a>===”^“,c=o?1:0,i=f.length;c&lt;i;++c){var <a href="c">j=f</a>;<a href="bdsw">if(/\</a>/i.test(j))a.push(j);else{var <a href="c+1">j=m(j),d;c+2<i&&"-"===f</a>?(<a href="c+2">d=m(f</a>),<a href="j,d">c+=2):d=j;b.push(</a>);<a href="Math.max(65,j)|32,Math.min(d,90)|32">d<65||j>122||(d<65||j>90||b.push(</a>),<a href="Math.max(97,j)&-33,Math.min(d,122)&-33">d<97||j>122||b.push(</a>))}}b.sort(function(a,f){return <a href="0">a</a>-<a href="0">f</a>||<a href="1">f</a>-<a href="1">a</a>});<a href="NaN,NaN">f=[];j=</a>;<a href="c">for(c=0;c<b.length;++c)i=b</a>,<a href="0">i</a>&lt;=<a href="1">j</a>+<a href="1">1?j</a>=<a href="1">Math.max(j</a>,<a href="1">i</a>):<a href=""">f.push(j=i);b=[”</a>;o&amp;&amp;b.push(“^”);b.push.apply(b,a);for(c=0;c&lt; <a href="c">f.length;++c)i=f</a>,<a href="0">b.push(e(i</a>)),<a href="1">i</a>&gt;<a href="0">i</a>&amp;&amp;(<a href="1">i</a>+<a href="0">1>i</a>&amp;&amp;<a href="1">b.push(“-”),b.push(e(i</a>)));b.push(“]”);return b.join(“”)}function y(a){for(var <a href="^\\\">f=a.source.match(/[(?:</a>]|\[<a href=“dA-Fa-f”>Ss])*]|\u</a>{4}|\<a href="\dA-Fa-f">x</a>{2}|\<a href=“^dux”>d+|\</a>|(?[!:=]|[()^]|[^()[\^]+/g),b=f.length,d=[],c=0,i=0;c&lt;b;++c){var <a href="c">j=f</a>;<a href="j">j===“(”?++i:“\”===j.charAt(0)&&(j=+j.substring(1))&&j<=i&&(d</a>=-1)}<a href="c">for(c=1;c<d.length;++c)-1===d</a>&amp;&amp;(<a href="c">d</a>=++<a href="c">t);for(i=c=0;c<b;++c)j=f</a>,<a href="i">j===“(”?(++i,d</a>===void <a href="c">0&&(f</a>=“(?:”)):“\”===j.charAt(0)&amp;&amp; (<a href="c">j=+j.substring(1))&&j<=i&&(f</a>=“\”+<a href="i">d</a>);<a href="c">for(i=c=0;c<b;++c)"^"===f</a>&amp;&amp;“^”!==<a href="c+1">f</a>&amp;&amp;(<a href="c">f</a>=“”);<a href="c">if(a.ignoreCase&&s)for(c=0;c<b;++c)j=f</a>,<a href="c">a=j.charAt(0),j.length>=2&&a===“[”?f</a>=<a href="c">h(j):a!==“\”&&(f</a>=<a href="A-Za-z">j.replace(/</a>/g,function(a){<a href=""+String.fromCharCode(a&-33,a|32)+"">a=a.charCodeAt(0);return“</a>”}));return f.join(“”)}for(var t=0,s=!1,l=!1,p=0,d=a.length;p&lt;d;++p){var <a href="p">g=a</a>;if(g.ignoreCase)l=!0;else <a href="a-z">if(/</a>/<a href="\da-f">i.test(g.source.replace(/\u</a>{4}|\<a href="\da-f">x</a>{2}|\[^UXux]/gi,“”))){s=!0;l=!1;break}}for(var r= {b:8,t:9,n:10,v:11,f:12,r:13},<a href="p">n=[],p=0,d=a.length;p<d;++p){g=a</a>;if(g.global||g.multiline)throw Error(“”+g);n.push(“(?:”+y(g)+“)”)}return RegExp(n.join(“|”),l?“gi”:“g”)}function M(a){function m(a){switch(a.nodeType){case 1:if(e.test(a.className))break;for(var <a href="s">g=a.firstChild;g;g=g.nextSibling)m(g);g=a.nodeName;if(“BR”===g||“LI”===g)h</a>=“<a href=”s<<1">n“,t</a>=<a href="s++<<1|1">y++,t</a>=a;break;case 3:case 4:g=a.nodeValue,g.length&amp;&amp;(g=p?g.replace(/rn?/g,”n“):g.replace(/[tnr ]+/g,” “),<a href="s">h</a>=<a href="s<<1">g,t</a>=y,y+=g.length, <a href="s++<<1|1">t</a>=a)}}var <a href="">e=/(?:^|s)nocode(?:s|$)/,h=[],y=0,t=</a>,s=0,l;a.currentStyle?l=a.currentStyle.whiteSpace:window.getComputedStyle&amp;&amp;(l=document.defaultView.getComputedStyle(a,q).getPropertyValue(”white-space“));var p=l&amp;&amp;”pre“===l.substring(0,3);m(a);return{a:h.join(”“).replace(/n$/,”“),c:t}}function B(a,m,e,h){m&amp;&amp;(a={a:m,d:a},e(a),h.push.apply(h,a.e))}function x(a,m){function e(a){for(var <a href="l,"pln"">l=a.d,p=</a>,d=0,g=a.a.match(y)||[],r={},n=0,z=g.length;n&lt;z;++n){var <a href="n">f=g</a>,<a href="f">b=r</a>,o=void 0,c;if(typeof b=== ”string“)c=!1;else{var <a href="f.charAt(0)">i=h</a>;<a href="1">if(i)o=f.match(i</a>),<a href="0">b=i</a>;else{<a href="c">for(c=0;c<t;++c)if(i=m</a>,<a href="1">o=f.match(i</a>)){<a href="0">b=i</a>;break}o||(b=”pln“)}if((c=b.length&gt;=5&amp;&amp;”lang-“===b.substring(0,5))&amp;&amp;!(o&amp;&amp;typeof <a href="1">o</a>===”<a href="f">string“))c=!1,b=”src“;c||(r</a>=b)}i=d;d+=f.length;if©{<a href="1">c=o</a>;var <a href="2">j=f.indexOf©,k=j+c.length;o</a>&amp;&amp;(<a href="2">k=f.length-o</a>.length,j=k-c.length);b=b.substring(5);B(l+i,f.substring(0,j),e,p);B(l+i+j,c,C(b,c),p);B(l+i+k,f.substring(k),e,p)}else p.push(l+i,b)}a.e=p}var h={},y;(function(){for(var e=a.concat(m), l=[],p={},d=0,g=e.length;d&lt;g;++d){var <a href="d">r=e</a>,<a href="3">n=r</a>;if(n)for(var <a href="n.charAt(k)">k=n.length;–k>=0;)h</a>=<a href="1">r;r=r</a>;<a href="n">n=”“+r;p.hasOwnProperty(n)||(l.push®,p</a>=q)}<a href="\S\s">l.push(/</a>/);y=L(l)})();var t=m.length;return e}function u(a){var <a href="">m=[],e=</a>;<a href="^'\\">a.tripleQuotedStrings?m.push([”str“,/^(?:”‘(?:</a>|\[<a href=”^’“>Ss]|”?(?=</a>))*(?:”‘|$)|”“”(?:[^“\]|\[<a href=”^“”>Ss]|“”?(?=</a>))*(?:“”“|$)|’(?:[^‘\]|\[<a href=”^“\”>Ss])*(?:’|$)|“(?:</a>|\[<a href=”^‘\“>Ss])*(?:”|$))/,q,“’"”]):a.multiLineStrings?m.push([“str”,/^(?:‘(?:</a>|\[<a href=“^”\“>Ss])*(?:’|$)|”(?:</a>|\[<a href=“^\‘”>Ss])*(?:“|$)|`(?:</a>|\[Ss])*(?:`|$))/, <a href="^\n\r'\\">q,”’"‘“]):m.push([”str“,/^(?:’(?:</a>|\.)*(?:‘|$)|”(?:[^<a href=“^”“>nr”\]|\.)*(?:“|$))/,q,”"’“]);a.verbatimStrings&&e.push([”str“,/^@”(?:</a>|“”)*(?:“|$)/,q]);var <a href="^#">h=a.hashComments;h&&(a.cStyleComments?(h>1?m.push([”com“,/^#(?:##(?:</a>|#(?!##))*(?:###|$)|.*)/,<a href="^\n\r">q,”#“]):m.push([”com“,/^#(?:(?:define|elif|else|endif|error|ifdef|include|ifndef|line|pragma|undef|warning)b|</a>*)/,<a href="\w-">q,”#“]),e.push([”str“,/^<(?:(?:(?:\.\.\/)*|\/?)(?:</a>+(?:/[<a href=”w-“>w-]+)+)?</a>+.<a href="a-z">h|</a><a href=”^nr“>w*)>/,q])):m.push([”com“,/^#</a>*/, <a href="^\n\r">q,”#“]));a.cStyleComments&&(e.push([”com“,/^//</a>*/,<a href="\S\s">q]),e.push([”com“,/^/*</a>*?(?:*/|$)/,<a href="!+-">q]));a.regexLiterals&&e.push([”lang-regex“,/^(?:^^.?|</a>|!=|!==|#|%|%=|&amp;|&amp;&amp;|&amp;&amp;=|&amp;=|(|*|*=|+=|,|-=|-&gt;|/|/=|:|::|;|&lt;|&lt;&lt;|&lt;&lt;=|&lt;=|=|==|===|&gt;|&gt;=|&gt;&gt;|&gt;&gt;=|&gt;&gt;&gt;|&gt;&gt;&gt;=|[?@[^]|^=|^^|^^=|{||||=||||||=|~|<a href="^*/">break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)s*(/(?=</a>)(?:[^/[\]|\[<a href=”^\">Ss]|[(?:</a>]|\[<a href=“”typ“,h”>Ss])*(?:]|$))+/)/]);(h=a.types)&&e.push(</a>);a=(“”+a.keywords).replace(/^ | $/g, “”);<a href="\s,">a.length&&e.push([“kwd”,RegExp(“^(?:”+a.replace(/</a>+/g,“|”)+“)\b”),q]);m.push([“pln”,/^s+/,q,“ rntxa0”]);e.push([“lit”,/^[<a href=“@_”>w$@]*/i,q],[“typ”,/^(?:</a>?[<a href="a-z">A-Z]+</a>[<a href=“$_a-z”>w$@]*|w+_tb)/,q],[“pln”,/^</a>[<a href=“da-f”>w$@]*/i,q],[“lit”,/^(?:0x</a>+|(?:d(?:_d+)<strong>d</strong><a href="+-">(?:.d*)?|.d+)(?:e</a>?<a href=“a-z”>d+)?)</a>*/<a href="\S\s">i,q,“0123456789”],[“pln”,/^\</a>?/,<a href="^\s\w"-$'./@\\`">q],[“pun”,/^.</a>*/,q]);return x(m,e)}function D(a,m){function e(a){switch(a.nodeType){case 1:if(k.test(a.className))break;if(“BR”===a.nodeName)h(a), a.parentNode&amp;&amp;a.parentNode.removeChild(a);else for(a=a.firstChild;a;a=a.nextSibling)e(a);break;case 3:case 4:if(p){var b=a.nodeValue,d=b.match(t);if(d){var <a href="0">c=b.substring(0,d.index);a.nodeValue=c;(b=b.substring(d.index+d</a>.length))&amp;&amp;a.parentNode.insertBefore(s.createTextNode(b),a.nextSibling);h(a);c||a.parentNode.removeChild(a)}}}}function h(a){function b(a,d){var e=d?a.cloneNode(!1):a,f=a.parentNode;if(f){var f=b(f,1),g=a.nextSibling;f.appendChild(e);for(var h=g;h;h=g)g=h.nextSibling,f.appendChild(h)}return e} for(;!a.nextSibling;)if(a=a.parentNode,!a)return;for(var a=b(a.nextSibling,0),e;(e=a.parentNode)&amp;&amp;e.nodeType===1;)a=e;d.push(a)}var k=/(?:^|s)nocode(?:s|$)/,t=/rn?|n/,s=a.ownerDocument,l;a.currentStyle?l=a.currentStyle.whiteSpace:window.getComputedStyle&amp;&amp;(l=s.defaultView.getComputedStyle(a,q).getPropertyValue(“white-space”));var p=l&amp;&amp;“pre”===l.substring(0,3);for(l=s.createElement(“LI”);a.firstChild;)l.appendChild(a.firstChild);for(var <a href="l">d=</a>,<a href="g">g=0;g<d.length;++g)e(d</a>);<a href="0">m===(m|0)&&d</a>.setAttribute(“value”, m);var r=s.createElement(“OL”);r.className=“linenums”;for(var <a href="g">n=Math.max(0,m-1|0)||0,g=0,z=d.length;g<z;++g)l=d</a>,l.className=“L”+(g+n)%10,l.firstChild||l.appendChild(s.createTextNode(“xa0”)),r.appendChild(l);a.appendChild®}function k(a,m){for(var e=m.length;–e&gt;=0;){var <a href="e">h=m</a>;A.hasOwnProperty(h)?window.console&amp;&amp;console.warn(“cannot override language handler %<a href="h">s”,h):A</a>=a}}function C(a,m){if(!a||!A.hasOwnProperty(a))a=/^s*&lt;/.test(m)?“default-markup”:“default-code”;return <a href="a">A</a>}function E(a){var m= a.g;try{var e=M(a.h),h=e.a;a.a=h;a.c=e.c;a.d=0;C(m,h)(a);var <a href="g">k=/bMSIEb/.test(navigator.userAgent),m=/n/g,t=a.a,s=t.length,e=0,l=a.c,p=l.length,h=0,d=a.e,g=d.length,a=0;d</a>=s;var <a href="n">r,n;for(n=r=0;n<g;)d</a>!==<a href="n+2">d</a>?(<a href="r++">d</a>=<a href="n++">d</a>,<a href="r++">d</a>=<a href="n++">d</a>):n+=2;g=r;for(n=r=0;n&lt;g;){for(var <a href="n">z=d</a>,<a href="n+1">f=d</a>,<a href="b+1">b=n+2;b+2<=g&&d</a>===<a href="r++">f;)b+=2;d</a>=<a href="r++">z;d</a>=f;n=b}for(d.length=r;h&lt;p;){var <a href="h+2">o=l</a>||<a href="a+2">s,c=d</a>||<a href="h+1">s,b=Math.min(o,c),i=l</a>,j;if(i.nodeType!==1&amp;&amp;(j=t.substring(e,b))){k&amp;&amp;(j=j.replace(m,“r”));i.nodeValue= j;var <a href="a+1">u=i.ownerDocument,v=u.createElement(“SPAN”);v.className=d</a>;var <a href="h+1">x=i.parentNode;x.replaceChild(v,i);v.appendChild(i);e<o&&(l</a>=i=u.createTextNode(t.substring(b,o)),x.insertBefore(i,v.nextSibling))}e=b;e&gt;=o&amp;&amp;(h+=2);e&gt;=c&amp;&amp;(a+=2)}}catch(w){“console”in window&amp;&amp;console.log(w&amp;&amp;w.stack?w.stack:w)}}var <a href=""break,continue,do,else,for,if,return,while"">v=</a>,<a href="v,"auto,case,char,const,default,double,enum,extern,float,goto,int,long,register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,void,volatile"">w=[</a>, “<a href="w,"alignof,align_union,asm,axiom,bool,concept,concept_map,const_cast,constexpr,decltype,dynamic_cast,explicit,export,friend,inline,late_check,mutable,namespace,nullptr,reinterpret_cast,static_assert,static_cast,template,typeid,typename,using,virtual,where"">catch,class,delete,false,import,new,operator,private,protected,public,this,throw,true,try,typeof”],F=</a>,<a href="w,"abstract,boolean,byte,extends,final,finally,implements,import,instanceof,null,native,package,strictfp,super,synchronized,throws,transient"">G=</a>, <a href="G,"as,base,by,checked,decimal,delegate,descending,dynamic,event,fixed,foreach,from,group,implicit,in,interface,internal,into,is,lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,var"">H=</a>,<a href="w,"debugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN"">w=</a>,<a href="v,"and,as,assert,class,def,del,elif,except,exec,finally,from,global,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,False,True,None"">I=</a>, <a href="v,"alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unless,until,when,yield,BEGIN,END"">J=</a>,<a href="v,"case,done,elif,esac,eval,fi,function,in,local,set,then,until"">v=</a>,K=/^(DIR|FILE|vector|(de|priority_)?queue|list|stack|(const_)?iterator|(multi)?(set|map)|bitset|u?(int|float)d*)/,N=/S/,O=u({keywords:[F,H,w,“caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END”+ I,J,v],hashComments:!0,cStyleComments:!0,multiLineStrings:!0,regexLiterals:!0}),A={};<a href=""default-code"">k(O,</a>);<a href="^<?">k(x([],[[“pln”,/^</a>+/],[“<a href="^>”>dec“,/^<!\w</a>*(?:&gt;|$)/],[”<a href="\S\s">com“,/^<\!--</a>*?(?:–&gt;|$)/],[”<a href="\S\s">lang-“,/^<\?(</a>+?)(?:?&gt;|$)/],[”<a href="\S\s">lang-“,/^<%(</a>+?)(?:%&gt;|$)/],[”<a href="%?">pun“,/^(?:<</a>|[%?]&gt;)/],[”<a href="^>“>lang-”,/^<xmp\b</a>*&gt;([<a href=“^>”>Ss]+?)<\/xmp\b</a>*&gt;/<a href="^>“>i],[”lang-js“,/^<script\b</a>*&gt;([<a href=”^>“>Ss]*?)(<\/script\b</a>*&gt;)/<a href="^>”>i],[“lang-css”,/^<style\b</a>*&gt;([<a href=“^>”>Ss]*?)(<\/style\b</a>*&gt;)/<a href="a-z">i],[“lang-in.tag”,/^(<\/?</a>[^&lt;&gt;]*&gt;)/i]]), [“default-markup”,“htm”,“html”,“mxml”,“xhtml”,“xml”,“xsl”]);k(x([[“pln”,/^s+/,q,“ trn”],[“atv”,/^(?:“[^”]*“?|‘[^’]*‘?)/,<a href="a-z">q,”"’“]],[[”tag“,/^^<\/?</a>(?:[<a href=”s=“>w-.:]*w)?|/?>$/i],[”atn“,/^(?!style</a>|<a href="a-z">on)</a>(?:[<a href=”^s“‘>”>w:-]*w)?/i],[“lang-uq.val”,/^=s*(</a>*(?:[^<a href=“/<->”>s“’/>]|/(?=s)))/],[”pun“,/^</a>+/],[”<a href="^"">lang-js“,/^onw+s*=s*”(</a>+)“/<a href="^'">i],[”lang-js“,/^onw+s*=s*‘(</a>+)’/<a href="^\s"'>”>i],[“lang-js”,/^onw+s*=s*(</a>+)/<a href="^"">i],[“lang-css”,/^styles*=s*“(</a>+)”/<a href="^'">i],[“lang-css”,/^styles*=s*‘(</a>+)’/i],[“lang-css”, /^<a href="^\s"'>“>styles*=s*(</a>+)/<a href=""in.tag"">i]]),</a>);<a href="\S\s">k(x([],[[”atv“,/^</a>+/]]),[”uq.val“]);k(u({keywords:F,hashComments:!0,cStyleComments:!0,types:K}),[”c“,”cc“,”cpp“,”cxx“,”cyc“,”m“]);k(u({keywords:”null,true,false“}),[”json“]);k(u({keywords:H,hashComments:!0,cStyleComments:!0,verbatimStrings:!0,types:K}),[”cs“]);k(u({keywords:G,cStyleComments:!0}),[”java“]);k(u({keywords:v,hashComments:!0,multiLineStrings:!0}),[”bsh“,”csh“,”sh“]);k(u({keywords:I,hashComments:!0,multiLineStrings:!0,tripleQuotedStrings:!0}), [”cv“,”py“]);k(u({keywords:”caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END“,hashComments:!0,multiLineStrings:!0,regexLiterals:!0}),[”perl“,”pl“,”pm“]);k(u({keywords:J,hashComments:!0,multiLineStrings:!0,regexLiterals:!0}),[”rb“]);k(u({keywords:w,cStyleComments:!0,regexLiterals:!0}),[”js“]);k(u({keywords:”all,and,by,catch,class,else,extends,false,finally,for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,true,try,unless,until,when,while,yes“, hashComments:3,cStyleComments:!0,multilineStrings:!0,tripleQuotedStrings:!0,regexLiterals:!0}),[”<a href="\S\s">coffee“]);k(x([],[[”str“,/^</a>+/]]),[”regex“]);window.prettyPrintOne=function(a,m,e){var h=document.createElement(”PRE“);h.innerHTML=a;e&amp;&amp;D(h,e);E({g:m,i:e,h:h});return h.innerHTML};window.prettyPrint=function(a){function m(){for(var e=window.PR_SHOULD_USE_CONTINUATION?l.now()+250:Infinity;p&lt;h.length&amp;&amp;l.now()&lt;e;p++){var <a href="p">n=h</a>,k=n.className;if(k.indexOf(”prettyprint“)&gt;=0){var k=k.match(g),f,b;if(b= !k){b=n;for(var o=void 0,c=b.firstChild;c;c=c.nextSibling)var i=c.nodeType,o=i===1?o?b:c:i===3?N.test(c.nodeValue)?b:o:o;b=(f=o===b?void 0:o)&amp;&amp;”CODE“===f.tagName}<a href="1">b&&(k=f.className.match(g));k&&(k=k</a>);b=!1;for(o=n.parentNode;o;o=o.parentNode)if((o.tagName===”pre“||o.tagName===”code“||o.tagName===”xmp“)&amp;&amp;o.className&amp;&amp;o.className.indexOf(”prettyprint“)&gt;=0){b=!0;break}<a href="1">b||((b=(b=n.className.match(/blinenumsb(?::(d+))?/))?b</a>&amp;&amp;<a href="1">b</a>.<a href="1">length?+b</a>:!0:!1)&amp;&amp;D(n,b),d={g:k,h:n,i:b},E(d))}}p&lt;h.length?setTimeout(m, 250):a&amp;&amp;a()}for(var <a href="document.getElementsByTagName("pre"),document.getElementsByTagName("code"),document.getElementsByTagName("xmp")">e=</a>,h=[],k=0;k&lt;e.length;++k)for(var <a href="k">t=0,s=e</a>.<a href="k">length;t<s;++t)h.push(e</a>[t]);var e=q,l=Date;l.now||(l={now:function(){return+new Date}});var <a href="\w.">p=0,d,g=/blang(?:uage)?-(</a>+)(?!S)/;m()};window.PR={createSimpleLexer:x,registerLangHandler:k,sourceDecorator:u,PR_ATTRIB_NAME:”atn“,PR_ATTRIB_VALUE:”atv“,PR_COMMENT:”com“,PR_DECLARATION:”dec“,PR_KEYWORD:”kwd“,PR_LITERAL:”lit“, PR_NOCODE:”nocode“,PR_PLAIN:”pln“,PR_PUNCTUATION:”pun“,PR_SOURCE:”src“,PR_STRING:”str“,PR_TAG:”tag“,PR_TYPE:”typ“}})();</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

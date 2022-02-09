@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class JobsController - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-c-new">::new</a>
+    <li ><a href="#method-i-create">#create</a>
+    <li ><a href="#method-i-destroy">#destroy</a>
+    <li ><a href="#method-i-get_by_language">#get_by_language</a>
+    <li ><a href="#method-i-get_by_title">#get_by_title</a>
+    <li ><a href="#method-i-index">#index</a>
+    <li ><a href="#method-i-show">#show</a>
+    <li ><a href="#method-i-update">#update</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-JobsController">
+  <h1 id="class-JobsController" class="class">
+    class JobsController
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>initialize the job service from <a href="JobsService.html"><code>JobsService</code></a> class which will execute the requests of <a href="JobsController.html"><code>JobsController</code></a></p>
+
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/jobs_controller.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-ivar">@job_service</span> = <span class="ruby-constant">JobsService</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-create" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Function to analyze the request create job</p>
+
+<p>params languages:array languages spoken of the job params dates:array[many array] date beginning and end up of shift days params title:string title of the job params salary:integer salary of the job</p>
+
+<p>POST /jobs</p>
+
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/jobs_controller.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
+  <span class="ruby-identifier">languages</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:languages</span>]
+  <span class="ruby-identifier">dates</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:dates</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">languages</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">dates</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">dates</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">7</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> { <span class="ruby-value">status:</span> <span class="ruby-string">&quot;error&quot;</span>, <span class="ruby-value">st:</span> <span class="ruby-value">400</span>, <span class="ruby-value">message:</span> <span class="ruby-string">&quot;bad parameters&quot;</span> }, <span class="ruby-value">status:</span> <span class="ruby-value">400</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">job_params</span>, <span class="ruby-identifier">languages</span>, <span class="ruby-identifier">dates</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">job</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:created</span>, <span class="ruby-value">location:</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">job</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">job</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:unprocessable_entity</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-destroy" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Function to analyze the request delete job</p>
+
+<p>params id:string id of the job to delete</p>
+
+<p>DELETE /jobs/1</p>
+
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/jobs_controller.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
+  <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">destroy</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-get_by_language" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">get_by_language</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Function to analyze the request get jobs by spoken language</p>
+
+<p>params languages:array languages spoken of the jobs</p>
+
+<p>GET /jobs/language/:language</p>
+
+          <div class="method-source-code" id="get_by_language-source">
+            <pre><span class="ruby-comment"># File app/controllers/jobs_controller.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_by_language</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-string">&quot;language&quot;</span>)
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">get_by_language</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:language</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:language</span>].<span class="ruby-identifier">present?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-get_by_title" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">get_by_title</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Function to analyze the request get jobs by title</p>
+
+<p>params title:string title of the jobs to find</p>
+
+<p>GET /jobs/title/:title</p>
+
+          <div class="method-source-code" id="get_by_title-source">
+            <pre><span class="ruby-comment"># File app/controllers/jobs_controller.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_by_title</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-string">&quot;title&quot;</span>)
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">get_by_title</span>(<span class="ruby-identifier">job_params</span>[<span class="ruby-value">:title</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">job_params</span>[<span class="ruby-value">:title</span>].<span class="ruby-identifier">present?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-index" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Function to analyze the request get all job</p>
+
+<p>GET /jobs</p>
+
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/jobs_controller.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">jobs_with_full_salary</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-show" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Function to analyze the request show job content</p>
+
+<p>params id:string id of the job to display</p>
+
+<p>GET /jobs/:id</p>
+
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/jobs_controller.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">job</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-update" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Function to analyze the request create job</p>
+
+<p>params id:string id of the job to update params languages:array spoken languages of the job params dates:array[many array] dates contents the date beginning and end up of shift days as array params title:string title of the job params salary:integer salary of the job</p>
+
+<p>PATCH/PUT /jobs/1</p>
+
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/jobs_controller.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-string">&quot;id&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">job_params</span>)
+    <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">job</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@job_service</span>.<span class="ruby-identifier">job</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-value">status:</span> <span class="ruby-value">:unprocessable_entity</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

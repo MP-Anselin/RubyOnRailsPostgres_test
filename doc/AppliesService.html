@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class AppliesService - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ApplicationService.html">ApplicationService</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-c-new">::new</a>
+    <li ><a href="#method-i-apply">#apply</a>
+    <li ><a href="#method-i-create">#create</a>
+    <li ><a href="#method-i-model">#model</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-AppliesService">
+  <h1 id="class-AppliesService" class="class">
+    class AppliesService
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>initialize the job service from <a href="JobsService.html"><code>JobsService</code></a> class which will execute job requests for <a href="ApplicationService.html"><code>ApplicationService</code></a>. initialize the user service from <a href="UsersService.html"><code>UsersService</code></a> class which will execute user requests for <a href="ApplicationService.html"><code>ApplicationService</code></a>.</p>
+
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/services/applies_service.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-ivar">@jobs_service</span> = <span class="ruby-constant">JobsService</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@users_service</span> = <span class="ruby-constant">UsersService</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-apply" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">apply</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Function to get current <a href="Apply.html"><code>Apply</code></a> element</p>
+
+          <div class="method-source-code" id="apply-source">
+            <pre><span class="ruby-comment"># File app/services/applies_service.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">apply</span>
+  <span class="ruby-ivar">@Apply</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-create" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">(job_id, user_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Function to create a new apply</p>
+
+<p>params job_id:string id of the job to applied params user_id:integer id of the user which will apply</p>
+
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/services/applies_service.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>(<span class="ruby-identifier">job_id</span>, <span class="ruby-identifier">user_id</span>)
+  <span class="ruby-identifier">job</span> = <span class="ruby-ivar">@jobs_service</span>.<span class="ruby-identifier">model</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">job_id</span>)
+  <span class="ruby-identifier">user</span> = <span class="ruby-ivar">@users_service</span>.<span class="ruby-identifier">model</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">user_id</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">job_id</span> <span class="ruby-keyword">or</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span> <span class="ruby-keyword">or</span> <span class="ruby-constant">Apply</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">user_id:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">job_id:</span> <span class="ruby-identifier">job</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-value">409</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@Apply</span> = <span class="ruby-constant">Apply</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">user:</span> <span class="ruby-identifier">user</span>, <span class="ruby-value">job:</span> <span class="ruby-identifier">job</span>)
+  <span class="ruby-ivar">@Apply</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-value">200</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-model" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">model</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Function to get <a href="Apply.html"><code>Apply</code></a> model class functions</p>
+
+          <div class="method-source-code" id="model-source">
+            <pre><span class="ruby-comment"># File app/services/applies_service.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">model</span>
+  <span class="ruby-constant">Apply</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
