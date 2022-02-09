@@ -1,9 +1,21 @@
 class SessionsController < ApplicationController
   include ActionController::Cookies
-  
+
+  ##
+  # initialize the session service from SessionsService class which will execute the requests of SessionsController
+  #
+
   def initialize
     @sessions_service = SessionsService.new
   end
+
+  ##
+  # Function to analyze the request sign up user
+  #
+  # params email:string email of user
+  # params password:string password of user
+  #
+  # GET /signup
 
   def signup
     case @sessions_service.signup(session_params[:email], session_params[:password])
@@ -15,6 +27,14 @@ class SessionsController < ApplicationController
       render json: { status: "error", code: 401, message: "invalid credentials" }, status: 401
     end
   end
+
+  ##
+  # Function to analyze the request login user and set Authorization token in cookies
+  #
+  # params email:string email of user
+  # params password:string password of user
+  #
+  # GET /login
 
   def login
     if @sessions_service.login(session_params[:email], session_params[:password])
@@ -29,6 +49,14 @@ class SessionsController < ApplicationController
     end
   end
 
+  ##
+  # Function to analyze the request logout user and delete Authorization in the cookies
+  #
+  # permit email:string email of user
+  # permit password:string password of user
+  #
+  # GET /logout
+
   def logout
     cookies[:Authorization] = {
       value: 0,
@@ -38,8 +66,17 @@ class SessionsController < ApplicationController
 
   private
 
+  ##
+  # Function to analyse the params
+  #
+  # permit email:string email of user
+  # permit password:string password of user
+  #
   # Only allow a list of trusted parameters through.
+
   def session_params
+    params.require("email")
+    params.require("password")
     params_info = params.require("session").permit(:email, :password)
     if params_info.empty? or
       !params_info.include?(:password) or

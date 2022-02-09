@@ -1,17 +1,33 @@
 class SessionsService < ApplicationService
+
+  ##
+  # initialize the user service from UsersService class which will execute the requests of SessionsController
+  # initialize the jwt service from JwtService class which will execute the requests of SessionsController
+  #
+
   def initialize
     @users_service = UsersService.new
     @jwt_service = JwtService.new
     @token = nil
   end
 
+  ##
+  #Funtion to get user service intense
+
+
   def users_service
     @users_service
   end
 
+  ##
+  #Funtion to get jwt service intense
+
   def jwt_service
     @jwt_service
   end
+
+  ##
+  #Funtion to get the user token
 
   def token
     @token
@@ -24,6 +40,12 @@ class SessionsService < ApplicationService
     @user
   end
 
+  ##
+  # Function to authorize the user from token
+  #
+  # params authentication:string token authentication
+
+
   def authentication_session(authentication)
     decode_data = @jwt_service.decode_user_data(authentication)
 
@@ -35,6 +57,13 @@ class SessionsService < ApplicationService
     @users_service.model.find(user_id)
   end
 
+  ##
+  # Function to execute request, signup
+  #
+  # params email:string email of user
+  # params password:string password of user
+  #
+
   def signup(email, password)
     if @users_service.model.find_by(email: email)
       return 409
@@ -44,6 +73,13 @@ class SessionsService < ApplicationService
     @user.save
     200
   end
+
+  ##
+  # Function to execute request, login
+  #
+  # params email:string email of user
+  # params password:string password of user
+  #
 
   def login(email, password)
     @user = user_session(email)

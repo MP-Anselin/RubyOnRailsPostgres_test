@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
 
+  ##
+  # Function to get the current user connected
+
   def current_user
    Current.user
   end
+
+  ##
+  # Function to analyze the token in the cookies
 
   def authentication
     @sessions_service = SessionsService.new
