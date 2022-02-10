@@ -34,7 +34,7 @@ class AppliesService < ApplicationService
     job = @jobs_service.model.find_by(id: job_id)
     user = @users_service.model.find_by(id: user_id)
 
-    if !job_id or !user.id or Apply.find_by(user_id: user.id, job_id: job.id)
+    if !job_id or !user or Apply.find_by(user_id: user.id, job_id: job.id)
       return 409
     end
 

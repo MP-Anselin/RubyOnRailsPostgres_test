@@ -55,7 +55,7 @@ run test
 
 ```
 bundle install
-rails seeds
+rspec spec
 ```
 
 # Documentation

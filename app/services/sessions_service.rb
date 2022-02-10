@@ -47,6 +47,8 @@ class SessionsService < ApplicationService
 
 
   def authentication_session(authentication)
+    authentication =  authentication.split(' ').last if authentication
+
     decode_data = @jwt_service.decode_user_data(authentication)
 
     unless decode_data && decode_data[0].include?("user_data")

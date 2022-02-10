@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   def signup
     case @sessions_service.signup(session_params[:email], session_params[:password])
     when 200
-      render json: { user_id: @sessions_service.user_session.id, email: @sessions_service.user_session.email }
+      render json: { user_id: @sessions_service.user_session.id, email: @sessions_service.user_session.email }, status: 200
     when 409
       render json: { status: "error", code: 409, message: "user already signed up" }, status: 409
     else
@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
   def login
     if @sessions_service.login(session_params[:email], session_params[:password])
       cookies[:Authorization] = {
-        value: @sessions_service.token,
+        value: "Bearer #{@sessions_service.token}",
         expires: 1.hour.from_now
       }
       user = @sessions_service.user_session
@@ -75,14 +75,6 @@ class SessionsController < ApplicationController
   # Only allow a list of trusted parameters through.
 
   def session_params
-    params.require("email")
-    params.require("password")
-    params_info = params.require("session").permit(:email, :password)
-    if params_info.empty? or
-      !params_info.include?(:password) or
-      !params_info.include?(:email)
-      return render json: { status: "error", code: 401, message: "invalid credentials" }, status: 401
-    end
-    params_info
+    params.require("session").permit(:email, :password)
   end
 end
